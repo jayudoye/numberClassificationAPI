@@ -55,8 +55,8 @@ app.get('/api/classify-number', async (req, res) => {
 	const sum = digitSum(num);
 
 	try {
-		const funfactAPI = await axios.get(`http://numbersapi.com/${num}?json`);
-		const funFact = funfactAPI.data.text; 
+		const funFactAPI = await axios.get(`http://numbersapi.com/${num}?json`);
+		const funFact = funFactAPI.data.text; 
         
         const response = {
 			number: num,
