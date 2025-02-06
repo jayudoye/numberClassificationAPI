@@ -55,11 +55,11 @@ app.get('/api/classify-number', async (req, res) => {
 	const sum = digitSum(num);
 
 	try {
-		const response = await axios.get(`http://numbersapi.com/${num}?json`);
-		const funFact = response.data.text; 
+		const funfactAPI = await axios.get(`http://numbersapi.com/${num}?json`);
+		const funFact = funfactAPI.data.text; 
         
-        const responses = {
-            number: num,
+        const response = {
+			number: num,
 			is_prime: prime,
 			is_perfect: perfect,
 			properties: properties,
@@ -67,7 +67,7 @@ app.get('/api/classify-number', async (req, res) => {
 			fun_fact: funFact
         }
 
-        res.status(200).json(responses);
+        res.status(200).json(response);
 	} catch (error) {
 		res.status(500).json({ error: 'Error fetching fun fact from Numbers API' });
 	}
