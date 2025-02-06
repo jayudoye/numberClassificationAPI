@@ -65,7 +65,7 @@ app.get('/api/classify-number', async (req, res) => {
 			properties: properties,
 			digit_sum: sum,
 			fun_fact: funFact
-        }
+        };
 
         res.status(200).json(response);
 	} catch (error) {
